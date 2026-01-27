@@ -25,6 +25,7 @@ Reset the game:
 
 What I Learned:
 
+- How to refactor into TypeScript
 - Implementing the Tower of Hanoi game with array manipulation
 - Managing game state with JavaScript arrays
 - Input validation and move legality checking

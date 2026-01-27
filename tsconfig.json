@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["ES2015", "DOM"],
+    "strict": true,
+    "noEmitOnError": true
+  },
+  "include": ["main.ts"]
+}
