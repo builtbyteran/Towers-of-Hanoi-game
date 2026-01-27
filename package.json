@@ -1,0 +1,32 @@
+{
+  "name": "towers-of-hanoi",
+  "version": "1.0.0",
+  "description": "Tower of Hanoi Game",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/builtbyteran/towers-of-hanoi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/builtbyteran/towers-of-hanoi/issues"
+  },
+  "homepage": "https://github.com/builtbyteran/towers-of-hanoi#readme",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-wesbos": "^4.3.2",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
+  }
+}
