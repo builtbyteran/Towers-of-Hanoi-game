@@ -59,10 +59,13 @@ const resetBtn = document.querySelector('#reset');
 const fromSelect = document.querySelector('#from');
 const toSelect = document.querySelector('#to');
 const moveBtn = document.querySelector('#move');
-changeSelect.addEventListener('click', () => {
-    diskCount = Number(changeSelect.value);
+changeSelect.addEventListener('change', () => {
+    const value = Number(changeSelect.value);
+    if (![3, 4, 5].includes(value)) {
+        return;
+    }
+    diskCount = value;
     board = createBoard(diskCount);
-    alert(`you now have ${diskCount} disks`);
     renderBoard();
 });
 moveBtn.addEventListener('click', () => {
@@ -87,4 +90,3 @@ resetBtn.addEventListener('click', () => {
     }
     renderBoard();
 });
-renderBoard();
