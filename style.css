@@ -1,14 +1,3 @@
-h1,
-h2,
-h3 {
-  color: whitesmoke;
-  font-weight: 500;
-}
-
 body {
-  background-color: darkslateblue;
-}
-
-.container {
-  text-align: center;
+  font-family: 'Cascadia Code', monospace;
 }

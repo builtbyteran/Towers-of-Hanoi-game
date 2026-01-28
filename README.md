@@ -1,23 +1,18 @@
 Tower of Hanoi Game
 
-- console-based implementation of the classic Tower of Hanoi puzzle built with vanilla JavaScript. Solve the puzzle by moving all discs from one peg to another using function calls in the browser console.
+- console-based implementation of the classic Tower of Hanoi puzzle built with vanilla JavaScript. Solve the puzzle by moving all disks from one peg to another using function calls in the browser console.
 
-How to Play:
+Updates:
 
-- Open the game in your browser
-- Open the browser console
-- Use the moveDisc(source, target) function to move discs between pegs
-
-Example:
-
-- moveDisc(1, 3) // Moves top disc from peg 1 to peg 3
-- moveDisc(1, 2) // Moves top disc from peg 1 to peg 2
+- Added Bootstrap and Cascadia Code font
+- Implemented the ability to change the number of disks
+- Redid the whole UI presented in cards with dropdown menus and buttons
 
 Rules:
 
-- Only one disc can be moved at a time
-- A larger disc cannot be placed on top of a smaller disc
-- Goal: Move all 5 discs from peg 1 to either peg 2 or peg 3
+- Only one disk can be moved at a time
+- A larger disk cannot be placed on top of a smaller disk
+- Goal: Move all 5 disks from peg 1 to either peg 2 or peg 3
 
 Reset the game:
 
@@ -35,7 +30,6 @@ What I Learned:
 Future Enhancements:
 
 - Display the board using HTML and accept user input via Web APIs
-- Add ability to change the number of pegs/discs and update the game board and playing style
 - Implement solve button that can solve from any given state
 
 ## Towers of Hanoi

@@ -2,42 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>towers-of-hanoi</title>
+    <title>Towers of Hanoi web-game</title>
   </head>
-  <body>
-    <div class="container">
-      <h1>Welcome to my Towers of Hanoi game!</h1>
-      <h2>To play, open the console, and use "moveDisc(#, #);"</h2>
-      <h3>There are 3 pegs printed in the console</h3>
-      <h3>The goal is to get all the discs, 5 4 3 2 1, onto a different peg</h3>
-      <h3>
-        Using moveDisc(1, 2) will move the disc from the first peg onto the
-        second
-      </h3>
-      <h3>Try it out and see if you can win the game</h3>
-      <div class="controls">
-        <label>
-          From:
-          <select id="from">
-            <option value="1">Peg 1</option>
-            <option value="2">Peg 2</option>
-            <option value="3">Peg 3</option>
-          </select>
-        </label>
-        <label>
-          To:
-          <select id="to">
-            <option value="1">Peg 1</option>
-            <option value="2">Peg 2</option>
-            <option value="3">Peg 3</option>
-          </select>
-        </label>
-
-        <button id="move">Move Disc</button>
+  <body class="bg-primary-subtle">
+    <div class="container py-5 bg-primary-subtle">
+      <div class="container text-center">
+        <h1 class="mb-5">
+          Welcome to my <strong>Towers of Hanoi</strong> game
+        </h1>
       </div>
-      <button id="reset">Reset</button>
+      <div class="card shadow-sm bg-light-subtle p-4">
+        <div class="card-header"><strong>Instructions:</strong></div>
+        <div class="card-body">
+          <ul>
+            <li>
+              <p>
+                To play, open the browser console, and use 'Move Disk' to move
+                disks around the pegs.
+              </p>
+            </li>
+            <li>
+              <p>
+                There are 3 pegs printed to the console, the goal is to get all
+                the disks on the first peg onto any other peg.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the dropdown menus to make your selections, try it out, and
+                see if you can win the game!
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Change disks</h5>
+          <p>Select the number of desired disks using the dropdown menu</p>
+          <select class="form-select" id="change">
+            <option selected>Select disks (default: 3)</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="card-body row">
+          <h5 class="card-title">Move disks</h5>
+          <div class="col">
+            <select class="form-select" id="from">
+              <option selected>From:</option>
+              <option value="1">Peg 1</option>
+              <option value="2">Peg 2</option>
+              <option value="3">Peg 3</option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-select" id="to">
+              <option selected>To:</option>
+              <option value="1">Peg 1</option>
+              <option value="2">Peg 2</option>
+              <option value="3">Peg 3</option>
+            </select>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary" id="move">
+              Move Disk
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Wanna restart?</h5>
+          <button type="button" class="btn btn-primary" id="reset">
+            reset
+          </button>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
