@@ -1,10 +1,10 @@
-# Tower of Hanoi Game
+# Towers of Hanoi Game
 
 An interactive web-based implementation of the classic Tower of Hanoi puzzle. Move all disks from one peg to another using an intuitive visual interface with dropdown menus and buttons.
 
 ## Live Demo
 
-- Will be learning how to deploy soon.
+- Try it out here (https://builtbyteran.github.io/Towers-of-Hanoi-game/)
 
 ## How to Play
 
