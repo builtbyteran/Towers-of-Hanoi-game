@@ -1,68 +1,66 @@
+// Using non-null assertion operator for hard coded elements
+let diskCount = 3;
+
+// Allows me to let the user select how many disks they want
 const createBoard = (disks: number): number[][] => {
   const firstPeg: number[] = [];
-
   for (let i = disks; i >= 1; i--) {
     firstPeg.push(i);
   }
-
   return [firstPeg, [], []];
 };
 
-let diskCount = 3;
 let board = createBoard(diskCount);
-
-const printBoard = () => {
-  // Creates the pegs
-  const currentBoard = board.map((peg) => `---${peg.join(' ')}`);
-
-  // Logs the pegs
-  currentBoard.forEach((peg) => {
-    console.log('peg', peg);
-  });
-};
-
 type PegIndex = 1 | 2 | 3;
 
 const moveDisk = (source: PegIndex, target: PegIndex) => {
-  // Turns the user inout to 0 based indexing for user convenience
+  // Turns the user input to 0 based indexing
   const sourcePeg: number[] = board[source - 1];
   const targetPeg: number[] = board[target - 1];
-
   // Logic for moving disks, ex: peg[disk]
   const successfulMove =
     (targetPeg.length === 0 && sourcePeg.length > 0) ||
     targetPeg[targetPeg.length - 1] > sourcePeg[sourcePeg.length - 1];
-
-  // Check for invalid move before executing
   if (!successfulMove) {
-    console.log(
-      'You cannot move a larger disk on top of a smaller one, board is still:',
-    );
+    alert('You cannot do that move');
+    return;
   } else {
-    console.log('That move was successful, board is now:');
     targetPeg.push(sourcePeg.pop()!);
   }
-
-  printBoard();
+  renderBoard();
   checkWinner();
 };
 
 const checkWinner = () => {
   if (board[1].length === diskCount) {
-    console.log(
-      "Congrats, you have successfully moved all the disks onto peg #2, you're a genius!",
-    );
+    alert("Congrats, you moved all the disks onto peg #2, you're a genius!");
   }
   if (board[2].length === diskCount) {
-    console.log(
-      "Congrats, you have successfully moved all the disks onto peg #3, you're a genius!",
-    );
+    alert("Congrats, you moved all the disks onto peg #3, you're a genius!");
   }
-
   return;
 };
 
-// Using non-null assertion operator, hard coded elements
+const gameDisplay = document.getElementById('game')!;
+
+const renderBoard = () => {
+  gameDisplay.innerHTML = '';
+  board.forEach((peg, index) => {
+    const pegDisplay = document.createElement('div');
+    pegDisplay.className =
+      'peg card shadow-sm bg-light-subtle d-flex flex-column-reverse align-items-center';
+    pegDisplay.textContent = `Peg ${index + 1}`;
+    peg.forEach((disk) => {
+      const diskDisplay = document.createElement('div');
+      diskDisplay.className = 'disk bg-light-subtle';
+      diskDisplay.style.width = `${disk * 30}px`;
+      diskDisplay.textContent = '---'.repeat(disk);
+      pegDisplay.appendChild(diskDisplay);
+    });
+    gameDisplay.appendChild(pegDisplay);
+  });
+};
+
 const changeSelect = document.querySelector<HTMLSelectElement>('#change')!;
 const resetBtn = document.querySelector<HTMLButtonElement>('#reset')!;
 const fromSelect = document.querySelector<HTMLSelectElement>('#from')!;
@@ -72,20 +70,17 @@ const moveBtn = document.querySelector<HTMLButtonElement>('#move')!;
 changeSelect.addEventListener('click', () => {
   diskCount = Number(changeSelect.value);
   board = createBoard(diskCount);
-  console.log('The current board has been reset');
-  console.log(`Board is now ${diskCount} disks.`);
-  printBoard();
+  alert(`you now have ${diskCount} disks`);
+  renderBoard();
 });
 
 moveBtn.addEventListener('click', () => {
   const from = Number(fromSelect.value) as PegIndex;
   const to = Number(toSelect.value) as PegIndex;
-
   if (to === from) {
-    console.log('You must select different pegs');
+    alert('You must select different pegs');
     return;
   }
-
   moveDisk(from, to);
 });
 
@@ -96,13 +91,12 @@ resetBtn.addEventListener('click', () => {
     board[1].length === 0 &&
     board[2].length === 0
   ) {
-    console.log('The board is already set to be played on');
+    alert('The game already set to be played');
   } else {
-    console.log('The current board has been reset');
+    alert('Your current game has been reset');
     board = createBoard(diskCount);
   }
-
-  printBoard();
+  renderBoard();
 });
 
-printBoard();
+renderBoard();

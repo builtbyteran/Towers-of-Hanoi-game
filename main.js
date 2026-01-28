@@ -1,80 +1,90 @@
-var createBoard = function (disks) {
-    var firstPeg = [];
-    for (var i = disks; i >= 1; i--) {
+"use strict";
+// Using non-null assertion operator for hard coded elements
+let diskCount = 3;
+// Allows me to let the user select how many disks they want
+const createBoard = (disks) => {
+    const firstPeg = [];
+    for (let i = disks; i >= 1; i--) {
         firstPeg.push(i);
     }
     return [firstPeg, [], []];
 };
-var diskCount = 3;
-var board = createBoard(diskCount);
-var printBoard = function () {
-    // Creates the pegs
-    var currentBoard = board.map(function (peg) { return "---".concat(peg.join(' ')); });
-    // Logs the pegs
-    currentBoard.forEach(function (peg) {
-        console.log('peg', peg);
-    });
-};
-var moveDisk = function (source, target) {
-    // Turns the user inout to 0 based indexing for user convenience
-    var sourcePeg = board[source - 1];
-    var targetPeg = board[target - 1];
+let board = createBoard(diskCount);
+const moveDisk = (source, target) => {
+    // Turns the user input to 0 based indexing
+    const sourcePeg = board[source - 1];
+    const targetPeg = board[target - 1];
     // Logic for moving disks, ex: peg[disk]
-    var successfulMove = (targetPeg.length === 0 && sourcePeg.length > 0) ||
+    const successfulMove = (targetPeg.length === 0 && sourcePeg.length > 0) ||
         targetPeg[targetPeg.length - 1] > sourcePeg[sourcePeg.length - 1];
-    // Check for invalid move before executing
     if (!successfulMove) {
-        console.log('You cannot move a larger disk on top of a smaller one, board is still:');
+        alert('You cannot do that move');
+        return;
     }
     else {
-        console.log('That move was successful, board is now:');
         targetPeg.push(sourcePeg.pop());
     }
-    printBoard();
+    renderBoard();
     checkWinner();
 };
-var checkWinner = function () {
+const checkWinner = () => {
     if (board[1].length === diskCount) {
-        console.log("Congrats, you have successfully moved all the disks onto peg #2, you're a genius!");
+        alert("Congrats, you moved all the disks onto peg #2, you're a genius!");
     }
     if (board[2].length === diskCount) {
-        console.log("Congrats, you have successfully moved all the disks onto peg #3, you're a genius!");
+        alert("Congrats, you moved all the disks onto peg #3, you're a genius!");
     }
     return;
 };
-// Using non-null assertion operator, hard coded elements
-var changeSelect = document.querySelector('#change');
-var resetBtn = document.querySelector('#reset');
-var fromSelect = document.querySelector('#from');
-var toSelect = document.querySelector('#to');
-var moveBtn = document.querySelector('#move');
-changeSelect.addEventListener('click', function () {
+const gameDisplay = document.getElementById('game');
+const renderBoard = () => {
+    gameDisplay.innerHTML = '';
+    board.forEach((peg, index) => {
+        const pegDisplay = document.createElement('div');
+        pegDisplay.className =
+            'peg card shadow-sm bg-light-subtle d-flex flex-column-reverse align-items-center';
+        pegDisplay.textContent = `Peg ${index + 1}`;
+        peg.forEach((disk) => {
+            const diskDisplay = document.createElement('div');
+            diskDisplay.className = 'disk bg-light-subtle';
+            diskDisplay.style.width = `${disk * 30}px`;
+            diskDisplay.textContent = '---'.repeat(disk);
+            pegDisplay.appendChild(diskDisplay);
+        });
+        gameDisplay.appendChild(pegDisplay);
+    });
+};
+const changeSelect = document.querySelector('#change');
+const resetBtn = document.querySelector('#reset');
+const fromSelect = document.querySelector('#from');
+const toSelect = document.querySelector('#to');
+const moveBtn = document.querySelector('#move');
+changeSelect.addEventListener('click', () => {
     diskCount = Number(changeSelect.value);
     board = createBoard(diskCount);
-    console.log('The current board has been reset');
-    console.log("Board is now ".concat(diskCount, " disks."));
-    printBoard();
+    alert(`you now have ${diskCount} disks`);
+    renderBoard();
 });
-moveBtn.addEventListener('click', function () {
-    var from = Number(fromSelect.value);
-    var to = Number(toSelect.value);
+moveBtn.addEventListener('click', () => {
+    const from = Number(fromSelect.value);
+    const to = Number(toSelect.value);
     if (to === from) {
-        console.log('You must select different pegs');
+        alert('You must select different pegs');
         return;
     }
     moveDisk(from, to);
 });
-resetBtn.addEventListener('click', function () {
+resetBtn.addEventListener('click', () => {
     // Arrays are truthy and [] === [] is false
     if (board[0].length === diskCount &&
         board[1].length === 0 &&
         board[2].length === 0) {
-        console.log('The board is already set to be played on');
+        alert('The game already set to be played');
     }
     else {
-        console.log('The current board has been reset');
+        alert('Your current game has been reset');
         board = createBoard(diskCount);
     }
-    printBoard();
+    renderBoard();
 });
-printBoard();
+renderBoard();

@@ -31,14 +31,14 @@
           <ul>
             <li>
               <p>
-                To play, open the browser console, and use 'Move Disk' to move
-                disks around the pegs.
+                To play, refer to the 3 cards below, use 'Move Disk' to move
+                disks around the pegs represented by the cards.
               </p>
             </li>
             <li>
               <p>
-                There are 3 pegs printed to the console, the goal is to get all
-                the disks on the first peg onto any other peg.
+                The goal is to get all the disks on the first peg onto any other
+                peg. You cannot place a larger disk onto a smaller one.
               </p>
             </li>
             <li>
@@ -53,8 +53,7 @@
           <h5 class="card-title">Change disks</h5>
           <p>Select the number of desired disks using the dropdown menu</p>
           <select class="form-select" id="change">
-            <option selected>Select disks (default: 3)</option>
-            <option value="3">3</option>
+            <option selected value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
@@ -90,6 +89,7 @@
           </button>
         </div>
       </div>
+      <div class="d-flex justify-content-between mt-5" id="game"></div>
     </div>
     <script src="main.js"></script>
   </body>

@@ -1,3 +1,19 @@
 body {
   font-family: 'Cascadia Code', monospace;
 }
+
+.peg {
+  border: 2px solid #444;
+  height: 250px;
+  padding-bottom: 10px;
+  width: 30%;
+}
+
+.disc {
+  border-radius: 4px;
+  font-family: 'Cascadia Code', monospace;
+  height: 24px;
+  margin: 2px 0;
+  text-align: center;
+  white-space: pre;
+}
