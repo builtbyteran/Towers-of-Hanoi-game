@@ -25,13 +25,16 @@ const moveDisc = (source: PegIndex, target: PegIndex) => {
 
   // Check for invalid move before executing
   if (!successfulMove) {
-    console.log('You cannot do that move');
+    console.log(
+      'You cannot move a larger disc on top of a smaller one, board is still:',
+    );
   } else {
+    console.log('That move was successful, board is now:');
     targetPeg.push(sourcePeg.pop()!);
   }
 
-  checkWinner();
   printBoard();
+  checkWinner();
 };
 
 const checkWinner = () => {
@@ -45,25 +48,38 @@ const checkWinner = () => {
       "Congrats, you have successfully moved all the discs onto peg #3, you're a genius!",
     );
   }
+
+  return;
 };
 
-// Using non-null assertion operator for 'reset'
-document
-  .querySelector<HTMLButtonElement>('.reset')!
-  .addEventListener('click', () => {
-    // Arrays are truthy and [] === [] is false, so I came up with this
-    if (
-      board[0].length === 5 &&
-      board[1].length === 0 &&
-      board[2].length === 0
-    ) {
-      console.log('The board is already set to be played on!');
-    } else {
-      console.log('The current board has been reset!');
-      board = [[5, 4, 3, 2, 1], [], []];
-    }
+// Using non-null assertion operator, hard coded elements
+const fromSelect = document.querySelector<HTMLSelectElement>('#from')!;
+const toSelect = document.querySelector<HTMLSelectElement>('#to')!;
+const moveBtn = document.querySelector<HTMLButtonElement>('#move')!;
+const resetBtn = document.querySelector<HTMLButtonElement>('#reset')!;
 
-    printBoard();
-  });
+moveBtn.addEventListener('click', () => {
+  const from = Number(fromSelect.value) as PegIndex;
+  const to = Number(toSelect.value) as PegIndex;
+
+  if (to === from) {
+    console.log('You must select different pegs');
+    return;
+  }
+
+  moveDisc(from, to);
+});
+
+resetBtn.addEventListener('click', () => {
+  // Arrays are truthy and [] === [] is false
+  if (board[0].length === 5 && board[1].length === 0 && board[2].length === 0) {
+    console.log('The board is already set to be played on');
+  } else {
+    console.log('The current board has been reset');
+    board = [[5, 4, 3, 2, 1], [], []];
+  }
+
+  printBoard();
+});
 
 printBoard();

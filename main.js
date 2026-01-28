@@ -33,18 +33,27 @@ var checkWinner = function () {
         console.log("Congrats, you have successfully moved all the discs onto peg #3, you're a genius!");
     }
 };
-// Using non-null assertion operator for 'reset'
-document
-    .querySelector('.reset')
-    .addEventListener('click', function () {
-    // Arrays are truthy and [] === [] is false, so I came up with this
-    if (board[0].length === 5 &&
-        board[1].length === 0 &&
-        board[2].length === 0) {
-        console.log('The board is already set to be played on!');
+// Using non-null assertion operator, hard coded elements
+var fromSelect = document.querySelector('#from');
+var toSelect = document.querySelector('#to');
+var moveBtn = document.querySelector('#move');
+var resetBtn = document.querySelector('#reset');
+moveBtn.addEventListener('click', function () {
+    var from = Number(fromSelect.value);
+    var to = Number(toSelect.value);
+    if (to === from) {
+        console.log('You must select different pegs');
+        return;
+    }
+    moveDisc(from, to);
+});
+resetBtn.addEventListener('click', function () {
+    // Arrays are truthy and [] === [] is false
+    if (board[0].length === 5 && board[1].length === 0 && board[2].length === 0) {
+        console.log('The board is already set to be played on');
     }
     else {
-        console.log('The current board has been reset!');
+        console.log('The current board has been reset');
         board = [[5, 4, 3, 2, 1], [], []];
     }
     printBoard();

@@ -17,7 +17,27 @@
         second
       </h3>
       <h3>Try it out and see if you can win the game</h3>
-      <button class="reset">Reset</button>
+      <div class="controls">
+        <label>
+          From:
+          <select id="from">
+            <option value="1">Peg 1</option>
+            <option value="2">Peg 2</option>
+            <option value="3">Peg 3</option>
+          </select>
+        </label>
+        <label>
+          To:
+          <select id="to">
+            <option value="1">Peg 1</option>
+            <option value="2">Peg 2</option>
+            <option value="3">Peg 3</option>
+          </select>
+        </label>
+
+        <button id="move">Move Disc</button>
+      </div>
+      <button id="reset">Reset</button>
     </div>
     <script src="main.js"></script>
   </body>
