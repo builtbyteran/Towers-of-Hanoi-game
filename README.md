@@ -49,23 +49,6 @@ An interactive web-based implementation of the classic Tower of Hanoi puzzle. Mo
 - Add move counter to track efficiency
 - Create an auto-solve feature that demonstrates the optimal solution
 
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/builtbyteran/Towers-of-Hanoi-game.git
-
-# Navigate to project directory
-cd Towers-of-Hanoi-game
-
-# Open in browser
-open index.html
-```
-
-No build process required - just open `index.html` in your browser!
-
----
-
 ## Towers of Hanoi
 
 This project has been created by a student at Parsity, an online software engineering course. The work in this repository is wholly of the student based on a sample starter project that can be accessed by looking at the repository that this project forks.
