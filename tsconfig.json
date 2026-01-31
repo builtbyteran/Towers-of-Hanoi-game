@@ -1,9 +1,11 @@
 {
+  "include": ["./**/*"],
   "compilerOptions": {
-    "target": "es2016", // <- upgrade target
-    "lib": ["es2016", "DOM"], // <- include ES2016 features
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
     "strict": true,
-    "noEmitOnError": true
-  },
-  "include": ["main.ts"]
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true
+  }
 }
