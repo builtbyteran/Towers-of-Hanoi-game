@@ -1,53 +1,42 @@
 # Towers of Hanoi Game
 
-An interactive web-based implementation of the classic Tower of Hanoi puzzle. Move all disks from one peg to another using an intuitive visual interface with dropdown menus and buttons.
+An interactive web-based implementation of the classic Tower of Hanoi puzzle.
 
-## Live Demo
+## Try it out here
 
-- Try it out here (https://builtbyteran.github.io/Towers-of-Hanoi-game/)
-
-## How to Play
-
-1. Select the number of disks you want to play with (3, 4, or 5)
-2. Use the dropdown menus to select which peg to move from and to
-3. Click "Move Disk" to execute your move
-4. **Goal:** Move all disks from peg 1 to either peg 2 or peg 3
-
-### Rules
-
-- Only one disk can be moved at a time
-- A larger disk cannot be placed on top of a smaller disk
+- (https://builtbyteran.github.io/Towers-of-Hanoi-game/)
 
 ## Features
 
-- **Visual game board** - See the pegs and disks rendered on screen
-- **Adjustable difficulty** - Choose between 3, 4, or 5 disks
-- **Move validation** - Prevents illegal moves automatically
-- **Win detection** - Alerts you when you've solved the puzzle
-- **Reset functionality** - Start over at any time
-- **Responsive design** - Works on desktop and mobile
+- Visual game board
+- Adjustable difficulty
+- Move validation
+- Win detection
+- Reset functionality
+- Responsive design
 
 ## Technologies Used
 
 - TypeScript
-- HTML5
-- CSS3
-- Bootstrap 5
-- Google Fonts (Cascadia Code)
+- HTML
+- CSS
+- Bootstrap
+- Google Fonts
 
 ## What I Learned
 
-- Refactoring JavaScript to TypeScript for improved type safety
+- Refactoring JavaScript to TypeScript
 - Dynamic DOM manipulation and rendering
 - Managing complex game state with arrays
 - Event handling with bootstrap form controls
 - Creating responsive layouts with Bootstrap
 - Building interactive web applications without frameworks
 
-## Future Enhancements
+## Roadmap
 
-- Add move counter to track efficiency
-- Create an auto-solve feature that demonstrates the optimal solution
+- Add counter to track moves
+- Create an auto-solve feature
+- Render instructions with a show/hide toggle
 
 ## Towers of Hanoi
 
