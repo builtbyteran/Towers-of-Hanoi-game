@@ -77,9 +77,8 @@ const renderBoard = () => {
     peg.forEach((disk) => {
       const diskDisplay = document.createElement('div');
 
-      diskDisplay.className = 'disk bg-light-subtle';
+      diskDisplay.className = 'disk bg-info shadow-sm';
       diskDisplay.style.width = `${disk * 30}px`;
-      diskDisplay.textContent = '---'.repeat(disk);
 
       pegDisplay.appendChild(diskDisplay);
     });

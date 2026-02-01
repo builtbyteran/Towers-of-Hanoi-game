@@ -9,11 +9,8 @@ body {
   width: 30%;
 }
 
-.disc {
+.disk {
   border-radius: 4px;
-  font-family: 'Cascadia Code', monospace;
-  height: 24px;
+  height: 20px;
   margin: 2px 0;
-  text-align: center;
-  white-space: pre;
 }
